@@ -1,0 +1,150 @@
+body {
+   font-family: 'Raleway', sans-serif;
+   font-size: 18px;
+}
+
+.wrap {
+   margin-top: 150px;
+   text-align: center;
+
+}
+
+.input-form {
+   width: 500px;
+   background-color: beige;
+   margin: 0 auto;
+   border-radius: 5px;
+   padding: 10px;
+}
+
+.input-form h2 {
+   margin: 5px 0 20px;
+}
+
+.input-form label {
+   padding-bottom: 10px;
+   font-style: italic;
+   font-size: 22px;
+}
+
+.input-form input {
+   font: inherit;
+   color: black;
+
+   border: 2px solid black;
+   background-color: white;
+   border-radius: 4px;
+   box-sizing: border-box;
+   width: 100%;
+   padding: 10px 15px;
+}
+
+.input-form input:focus,
+.input-form input:active {
+   outline: none;
+   border: 2px solid red;
+}
+
+.button {
+   font: inherit;
+
+   text-align: center;
+   vertical-align: middle;
+   background-color: white;
+   color: black;
+   text-transform: uppercase;
+   border: 2px solid black;
+
+   display: inline-block;
+   padding: 10px 30px;
+   border-radius: 4px;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+   outline: none;
+   border: 2px solid red;
+   background-color: rgb(238, 190, 182);
+}
+
+a.button {
+   margin-top: 10px;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   padding: 0;
+   border: 0;
+
+   white-space: nowrap;
+
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+}
+
+.visualization {
+   background-color: beige;
+   margin: 0 auto;
+   border-radius: 5px;
+   padding: 10px;
+   width: fit-content;
+}
+
+.search-string,
+.prefix-sums,
+.found {
+   display: flex;
+   justify-content: flex-start;
+   flex-wrap: nowrap;
+   overflow: auto;
+}
+
+.visualization p {
+   margin: 0;
+}
+
+.visualization .search-string * {
+   margin-bottom: 5px;
+}
+
+.algo span {
+   width: 30px;
+   height: auto;
+}
+
+.visualization {
+   font-size: 24px;
+   display: flex;
+   justify-content: space-between;
+}
+
+.visualization div {
+   display: flex;
+   flex-flow: column nowrap;
+   text-align: end;
+}
+
+.labelS {
+   margin-bottom: 5px;
+}
+
+.help {
+   margin-right: 10px;
+}
+
+.help span {
+   min-width: 241px;
+}
+
+.if-found {
+   color: rgb(14, 194, 14);
+}
