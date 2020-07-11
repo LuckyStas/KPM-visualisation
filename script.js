@@ -8,6 +8,8 @@ let subStringLength;
 async function prefixFunction() {
    const htmlStr = document.querySelector(".prefix-sums");
    const ifFound = document.querySelector(".found");
+   const string = document.querySelector(".search-string");
+   let nodes = string.childNodes;
    let prefixes = Array(array.length);
    for(let i = 0; i < array.length; ++i) {
       prefixes[i] = 0;
@@ -28,15 +30,31 @@ async function prefixFunction() {
          ++k;
       }
       prefixes[i] = k;
+      if (k < prefixes[i-1]) {
+         for (let index = 0; index < prefixes[i-1]; index++) {
+            nodes[index].classList.remove("searching"); 
+         }
+         if (prefixes[i-1] !== subStringLength) {
+            for (let index = i - 1; index > i - prefixes[i-1] - 1; --index) {
+               nodes[index].classList.remove("searching"); 
+            }
+         }
+      } 
+      if (k > 0) {
+         for (let index = 0; index < k; index++) {
+            nodes[index].classList.add("searching");
+         }
+         nodes[i].classList.add("searching");
+      }
       if (prefixes[i] === subStringLength) {
          ++found;
          ifFound.innerHTML = "<span>" + found + "<span>";
          htmlStr.innerHTML += "<span>" + prefixes[i] + "<span>";
          htmlStr.lastChild.classList.add("if-found");
          ifFound.classList.add("if-found");
-         const string = document.querySelector(".search-string");
-         let nodes = string.childNodes;
+
          for(let j = i; j > i - subStringLength; --j) {
+            nodes[j].classList.remove("searching");
             nodes[j].classList.add("if-found");
          }
       } else {

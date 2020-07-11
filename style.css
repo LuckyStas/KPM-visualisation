@@ -148,3 +148,7 @@ input[type="radio"].visually-hidden {
 .if-found {
    color: rgb(14, 194, 14);
 }
+
+.searching {
+   color: rgb(255, 136, 0);
+}
