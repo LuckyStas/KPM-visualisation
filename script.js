@@ -4,7 +4,7 @@ const playPause = document.querySelector(".algo-toggle");
 const stepBack = document.querySelector(".left");
 const stepForward = document.querySelector(".right");
 const domObject = document.querySelector(".algo");
-
+const againButton = document.querySelector(".again-here");
 
 let length;
 let myHTML;
@@ -28,30 +28,29 @@ function fun() {
 }
 
 async function animate() {
+   domObject.innerHTML = myHTML[0]; 
+   form.classList.add("visually-hidden");
+   visualization.classList.remove("visually-hidden");
+   document.querySelector(".again").classList.add("visually-hidden");
+   againButton.classList.add("visually-hidden");
+   playPause.classList.remove("visually-hidden");
+   stepBack.classList.remove("visually-hidden");
+   stepForward.classList.remove("visually-hidden");
    for (let index = 0; index < length; index++) {
-      domObject.innerHTML = myHTML[index];  
-      await new Promise((resolve) => setTimeout(() => resolve(), 1000));
       if (modified) {
          index = currentIter;
          modified = false;
       } else {
       currentIter = index;
       }
+      domObject.innerHTML = myHTML[index];  
+      await new Promise((resolve) => setTimeout(() => resolve(), 1000));
       if (ifStopped) {
          const val = await fun(); 
       }
    }
    document.querySelector(".again").classList.remove("visually-hidden");
-}
-
-function animationArray() {
-   domObject.innerHTML = myHTML[currentIter]; 
-   form.classList.add("visually-hidden");
-   visualization.classList.remove("visually-hidden");
-   playPause.classList.remove("visually-hidden");
-   stepBack.classList.remove("visually-hidden");
-   stepForward.classList.remove("visually-hidden");
-   animate();
+   againButton.classList.remove("visually-hidden");
 }
 
 
@@ -110,7 +109,7 @@ function prefixFunction() {
       }
       length = myHTML.push(domObject.innerHTML.toString());
    }
-   animationArray();
+   animate();
    
 }
 
@@ -122,7 +121,6 @@ function handlerForm(event) {
    if (strTB.value === "" || substrTB.value === "") {
       return;
    } else {
-
       const string = document.querySelector(".search-string");
       subStringLength = substrTB.value.length;
       const workString = substrTB.value + "#" + strTB.value;
@@ -134,7 +132,7 @@ function handlerForm(event) {
    prefixFunction()
 }
 
-function stopAlgo(event) {
+playPause.onclick = (event) => {
    event.preventDefault();
    if (playPause.classList.contains("pause")) {
       playPause.classList.add("play");
@@ -148,7 +146,7 @@ function stopAlgo(event) {
 
 }
 
-function back(event) {
+stepBack.onclick = (event) => {
    event.preventDefault();
    if (currentIter === 0) {
       return;
@@ -158,7 +156,7 @@ function back(event) {
    modified = true;
 }
 
-function forward(event) {
+stepForward.onclick = (event) => {
    event.preventDefault();
    if (currentIter === length - 1) {
       return;
@@ -168,7 +166,9 @@ function forward(event) {
    modified = true;
 }
 
+againButton.onclick = () => {
+animate();
+againButton.blur()
+}
+
 form.addEventListener("submit", handlerForm);
-playPause.addEventListener("click", stopAlgo);
-stepBack.addEventListener("click", back);
-stepForward.addEventListener("click", forward);

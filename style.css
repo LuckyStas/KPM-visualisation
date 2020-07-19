@@ -190,7 +190,12 @@ input[type="radio"].visually-hidden {
 }
 
 .again {
-   margin: 5px auto;
+   margin-right: 60px;
+}
+
+.again-here{
+   margin-top: 10px;
+   margin-left: 60px;
 }
 
 .last {
