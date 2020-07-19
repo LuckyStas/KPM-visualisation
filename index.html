@@ -2,44 +2,49 @@
 <html lang="en">
 
 <head>
-  <title>KMP visualization</title>
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+   <title>KMP visualization</title>
+   <link rel="stylesheet" href="style.css" type="text/css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="wrap">
-   <form class = "input-form" action="POST">
-      <h2>Введите что и где хотите искать</h2>
-      <p>
-         <label for="string">Строка для поиска</label><br><br>
-         <input class="string" type="text" name="string" placeholder="Строка">
-      </p>
-      <p>
-         <label for="substring">Поиск</label><br><br>
-         <input class="substring" type="text" name="substring" placeholder="Что искать в строке">
-      </p>
-      <button type="submit" class="button">Ищем!</button>
-   </form>
-   <div class="visualization visually-hidden">
-      <div class="help">
-      <span class="labelS">Строка поиска:</span>
-      <span>Префиксные суммы:</span>
-      <span>Найдено совпадений:</span>
+   <div class="wrap">
+      <form class="input-form" action="POST">
+         <h2>Введите что и где хотите искать</h2>
+         <p>
+            <label for="string">Строка для поиска</label><br><br>
+            <input class="string" type="text" name="string" placeholder="Строка">
+         </p>
+         <p>
+            <label for="substring">Поиск</label><br><br>
+            <input class="substring" type="text" name="substring" placeholder="Что искать в строке">
+         </p>
+         <button type="submit" class="button">Ищем!</button>
+      </form>
+      <div class="visualization visually-hidden">
+         <div class="help">
+            <span class="labelS">Строка поиска:</span>
+            <span>Префиксные суммы:</span>
+            <span>Найдено совпадений:</span>
+         </div>
+         <div class="algo">
+            <p class="search-string"></p>
+            <p class="prefix-sums"></p>
+            <p class="found"><span>0</span></p>
+         </div>
       </div>
-      <div class="algo">
-      <p class="search-string"></p>
-      <p class="prefix-sums"><span>-</span></p>
-      <p class="found"><span>0</span></p>
-     </div>
-     
+      <button class="button left visually-hidden"><</button> 
+      <button class="button algo-toggle pause visually-hidden"></button>
+      <button class="button right visually-hidden">></button>
    </div>
-   <a href="./index.html" class="button visually-hidden again">Еще раз</a>
-  </div>
-  <script src="./script.js"></script>
+   <div class="last">
+      <a href="./index.html" class="button visually-hidden again">Еще раз</a>
+   </div>
+   <script src="./script.js"></script>
 </body>
 
 </html>

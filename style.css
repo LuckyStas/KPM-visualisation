@@ -152,3 +152,47 @@ input[type="radio"].visually-hidden {
 .searching {
    color: rgb(255, 136, 0);
 }
+
+.pause {
+   width: 45px;
+   height: 40px;
+   background-image: url(./pause-solid.svg);
+   background-repeat: no-repeat;
+   background-position: 5px;
+   padding: 0;
+   margin-top: 5px;
+}
+
+.play {
+   width: 45px;
+   height: 40px;
+   background-image: url(./play-solid.svg);
+   background-repeat: no-repeat;
+   background-position: 5px;
+   padding: 0;
+   margin-top: 5px;
+}
+
+.left,
+.right {
+   height: 40px;
+   width: 55px;
+   padding: 0;
+   margin-top: 5px;
+}
+
+.left {
+   margin-right: 10px;
+}
+
+.right {
+   margin-left: 10px;
+}
+
+.again {
+   margin: 5px auto;
+}
+
+.last {
+   text-align: center;
+}
