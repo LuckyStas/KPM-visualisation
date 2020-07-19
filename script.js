@@ -150,20 +150,20 @@ function stopAlgo(event) {
 
 function back(event) {
    event.preventDefault();
-   --currentIter;
-   if (currentIter < 0) {
+   if (currentIter === 0) {
       return;
    }
+   --currentIter;
    domObject.innerHTML = myHTML[currentIter];
    modified = true;
 }
 
 function forward(event) {
    event.preventDefault();
-   ++currentIter;
-   if (currentIter > length) {
+   if (currentIter === length - 1) {
       return;
    }
+   ++currentIter;
    domObject.innerHTML = myHTML[currentIter];
    modified = true;
 }
