@@ -69,7 +69,7 @@ function prefixFunction() {
    myHTML = [domObject.innerHTML.toString()];
    let k = 0;
    let found = 0;
-   for(let i = subStringLength + 1; i < array.length; ++i) {
+   for(let i = 1; i < array.length; ++i) {
       while (k > 0 && array[k] !== array[i]) {
          k = prefixes[k-1];
       }
@@ -77,6 +77,7 @@ function prefixFunction() {
          ++k;
       }
       prefixes[i] = k;
+      if (i > subStringLength) {
       if (k < prefixes[i-1]) {
          for (let index = 0; index < prefixes[i-1]; index++) {
             nodes[index].classList.remove("searching"); 
@@ -108,6 +109,7 @@ function prefixFunction() {
       htmlStr.innerHTML += "<span>" + prefixes[i] + "<span>";
       }
       length = myHTML.push(domObject.innerHTML.toString());
+   }
    }
    animate();
    
