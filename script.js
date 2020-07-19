@@ -151,7 +151,7 @@ function stopAlgo(event) {
 function back(event) {
    event.preventDefault();
    --currentIter;
-   if (currentIter < length) {
+   if (currentIter < 0) {
       return;
    }
    domObject.innerHTML = myHTML[currentIter];
