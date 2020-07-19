@@ -151,6 +151,9 @@ function stopAlgo(event) {
 function back(event) {
    event.preventDefault();
    --currentIter;
+   if (currentIter < length) {
+      return;
+   }
    domObject.innerHTML = myHTML[currentIter];
    modified = true;
 }
@@ -158,6 +161,9 @@ function back(event) {
 function forward(event) {
    event.preventDefault();
    ++currentIter;
+   if (currentIter > length) {
+      return;
+   }
    domObject.innerHTML = myHTML[currentIter];
    modified = true;
 }
